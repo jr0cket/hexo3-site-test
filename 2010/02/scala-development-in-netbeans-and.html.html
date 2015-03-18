@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Scala Development in Netbeans and Ubuntu (And MacOSX) | jr0cket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Netbeans IDE is a pretty lightweight but easily extensible IDE for different languages that run on the Java Virtual Machine (JVM):
+
+Java - native support
+Groovy - native support
+Scala - plugin - w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala Development in Netbeans and Ubuntu (And MacOSX)">
+<meta property="og:url" content="http://jr0cket.co.uk/2010/02/scala-development-in-netbeans-and.html.html">
+<meta property="og:site_name" content="jr0cket">
+<meta property="og:description" content="The Netbeans IDE is a pretty lightweight but easily extensible IDE for different languages that run on the Java Virtual Machine (JVM):
+
+Java - native support
+Groovy - native support
+Scala - plugin - w">
+<meta property="og:image" content="http://2.bp.blogspot.com/_yKz3swsAoNQ/S4akdW_EnwI/AAAAAAAAADo/lN-aFCS8Zko/s1600-h/Netbeans-plugin-manager.png">
+<meta property="og:image" content="http://2.bp.blogspot.com/_yKz3swsAoNQ/S4alja3wxuI/AAAAAAAAADw/9xfLWdE9L_o/s1600-h/Netbeans-plugins-nb-scala.png">
+<meta property="og:image" content="http://4.bp.blogspot.com/_yKz3swsAoNQ/S4am4rbNndI/AAAAAAAAAD4/NrHTQG-LQhc/s1600-h/Netbeans-projects-scala-application.png">
+<meta property="og:image" content="http://1.bp.blogspot.com/_yKz3swsAoNQ/S4aoM0RFfrI/AAAAAAAAAEA/adDp0l6dDmQ/s1600-h/Netbeans-projects-scala-app-details.png">
+<meta property="og:image" content="http://4.bp.blogspot.com/_yKz3swsAoNQ/S4aoqkwdckI/AAAAAAAAAEI/BCgj2fyX0HU/s1600-h/Netbeans-scala-filetypes.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scala Development in Netbeans and Ubuntu (And MacOSX)">
+<meta name="twitter:description" content="The Netbeans IDE is a pretty lightweight but easily extensible IDE for different languages that run on the Java Virtual Machine (JVM):
+
+Java - native support
+Groovy - native support
+Scala - plugin - w">
+<meta name="twitter:creator" content="@jr0cket">
+  
+    <link rel="alternative" href="/atom.xml" title="jr0cket" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28030709-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jr0cket</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">community developer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/developer-guides">DevGuides</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/slides">Slides</a>
+        
+          <a class="main-nav-link" href="/workshops">Workshops</a>
+        
+          <a class="main-nav-link" href="/clojure">Clojure</a>
+        
+          <a class="main-nav-link" href="/hexo">Hexo</a>
+        
+          <a class="main-nav-link" href="http://ubuntu.jr0cket.co.uk">Ubuntu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/jr0cket" target="_blank"></a>
+        <a id="nav-linkedin-link" class="nav-icon" href="https://uk.linkedin.com/in/jr0cket" target="_blank"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/jr0cket" target="_blank"></a>
+        <a id="nav-googleplus-link" class="nav-icon" href="https://plus.google.com/117080433375668558463" target="_blank"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://jr0cket.co.uk"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-scala-development-in-netbeans-and.html" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/02/scala-development-in-netbeans-and.html.html" class="article-date">
+  <time datetime="2010-02-25T15:11:00.000Z" itemprop="datePublished">25 Feb 2010</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/dev-tools/">dev-tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Scala Development in Netbeans and Ubuntu (And MacOSX)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Netbeans IDE is a pretty lightweight but easily extensible IDE for different languages that run on the Java Virtual Machine (JVM):</p>
+<ul>
+<li>Java - native support</li>
+<li>Groovy - native support</li>
+<li>Scala - plugin - works with Scala 2.8</li>
+<li>Clojure - plugin called <a href="http://www.enclojure.org/" target="_blank" rel="external">enclojure</a></li>
+</ul>
+<p>This article covers setting up Scala in Netbeans 6.8 in Linux (works on MacOSX too) - includes installing Scala 2.8, <a href="http://wiki.netbeans.org/Scala68v1" target="_blank" rel="external">check out the Netbeans guide for Mac and Windows installs and other tips.</a></p>
+<a id="more"></a>
+<blockquote>
+<p>Note: If you are feeling adventurous, you can <a href="http://bits.netbeans.org/dev/nightly/latest/" target="_blank" rel="external">download a Netbeans nightly build </a> and add the Scala kit from the netbeans update center.</p>
+</blockquote>
+<p>Any text in green are text or commands for you to enter.</p>
+<h2 id="Download_Netbeans">Download Netbeans</h2><p><a href="http://netbeans.org/downloads/index.html" target="_blank" rel="external">Get the latest version of netbeans</a> (6.8 at this point in time).  If you are just doing Scala, go for the Java SE download, or Java download if you want Glassfish as well</p>
+<blockquote>
+<p>You can add all supported technologies easily through the plugin manager, like you use the package manager with Debian/Ubuntu.  Netbeans will only activate a plugin when you first start using it, so even if you install everything its still lightweight.</p>
+</blockquote>
+<h2 id="Install_Netbeans">Install Netbeans</h2><p>I create a folder called /opt/netbeans for the installation:</p>
+<pre><code>sudo mkdir <span class="regexp">/opt/</span>netbeans&lt;<span class="regexp">/span&gt;&lt;/</span><span class="keyword">div</span>&gt;
+</code></pre><p>Run the install file that you downloaded:</p>
+<pre><code>sudo <span class="keyword">sh</span> ./netbeans-6.8-<span class="keyword">ml</span>-javase-linux.<span class="keyword">sh</span>&lt;/span&gt;&lt;/div&gt;
+</code></pre><p>Follow the installer prompts, entering the following path when asked to chose the install folder:</p>
+<pre><code>/opt/netbeans/netbeans-6.8<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>Go and download the latest version of Scala while you wait…</p>
+<h2 id="Download_Scala_2-8">Download Scala 2.8</h2><p><a href="http://www.scala-lang.org/archives/downloads/distrib/files/nightly/distributions/scala-2.8.0.latest.zip" target="_blank" rel="external">Download the latest Scala-2.8.0 snapshot of the runtime</a>.  Keeping the folder names, extract the zip file using file roller to <code>/opt/scala/</code>, so you will have an install in <code>/opt/scala/scal-2.8.0r20979-bxxxxxx</code> </p>
+<p>If you dont have permissions to write to <code>/opt</code>, run the command </p>
+<pre><code>sudo <span class="keyword">mkdir</span> /opt/<span class="keyword">scala</span> ; sudo chown -R username. /opt/<span class="keyword">scala</span> 
+</code></pre><p>Substitute your operating sytem username above, keeping the full stop to add group access too.</p>
+<p>To easily update Scala, create a symbolic link to the newly extracted scala runtime</p>
+<pre><code>sudo ln -s /opt/<span class="keyword">scala</span>/<span class="keyword">scala</span>-2.8.0.r20979-b20100225020147 current
+</code></pre><h2 id="Set_the_SCALA_HOME_environment">Set the SCALA_HOME environment</h2><p>For MacOSX, see the <a href="http://wiki.netbeans.org/MacOSXEnvForApp" target="_blank" rel="external">netbeans article for configuring the environment for MacOSX</a>.</p>
+<p>Edit the <code>/etc/profile</code> file:</p>
+<pre><code>gksudo gedit <span class="regexp">/etc/</span>profile&lt;<span class="regexp">/span&gt;&lt;/</span><span class="keyword">div</span>&gt;
+</code></pre><p>Add the following lines at the bottom of the file and save the file</p>
+<pre><code># <span class="keyword">Scala</span> runtime environment - latest <span class="keyword">version</span>
+export SCALA_HOME=/opt/<span class="keyword">scala</span>/current
+</code></pre><p>Load the settings into your current session by typing the following in your terminal window</p>
+<pre><code><span class="keyword">source</span> <span class="regexp">/etc/</span>profile&lt;<span class="regexp">/span&gt;&lt;/</span><span class="keyword">div</span>&gt;
+</code></pre><p>Test the environment variable is set using the echo command, when run it should print out:</p>
+<pre><code><span class="built_in">echo</span> <span class="variable">$SCALA_HOME</span>
+</code></pre><h2 id="Running_Scala_on_the_command_line">Running Scala on the command line</h2><p>Make the Scala commands executable:</p>
+<pre><code>sudo chmod a+x /opt/scala/current/bin/<span class="keyword">*</span><span class="variable">&lt;/span&gt;</span>
+</code></pre><p>Add Scala to your path by updating your shell resource file (ie. .bashrc or .zshrc)</p>
+<pre><code><span class="comment"># Add Scala to path for login scripts</span>
+<span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin/
+</code></pre><h2 id="Test_Scala_works">Test Scala works</h2><p>To test Scala is basically working, run Scala with the version option and you should get output as follows:</p>
+<pre><code>Scala <span class="tag">code</span> runner version <span class="number">2.8</span>.<span class="number">0</span><span class="class">.r20979-b20100225020147</span> -- Copyright <span class="number">2002</span>-<span class="number">2010</span>, LAMP/EPFL
+</code></pre><p>Without updating your executable path you can run:</p>
+<pre><code><span class="label">$SCALA_HOME</span>/bin/<span class="keyword">scala</span> -<span class="keyword">version</span>
+</code></pre><p>If you did update your executable path, then just run:</p>
+<pre><code><span class="keyword">scala</span> -<span class="keyword">version</span>
+</code></pre><h2 id="Add_the_Scala_Plugin_for_Netbeans">Add the Scala Plugin for Netbeans</h2><p><a href="http://sourceforge.net/projects/erlybird/files/nb-scala/6.8v1.1.0rc1/" target="_blank" rel="external">Download the Scala Plugin for Netbeans</a> (sourceforge page, download the latest zip file ~15MB)</p>
+<p>Extract the downloaded zip file to /opt/netbeans/plugins using file-roller (or unzip)</p>
+<p>Run the netbeans IDE from the <code>applications &gt; programming</code> menu or just running <code>netbeans</code> on the command line.</p>
+<img src="http://2.bp.blogspot.com/_yKz3swsAoNQ/S4akdW_EnwI/AAAAAAAAADo/lN-aFCS8Zko/s1600-h/Netbeans-plugin-manager.png">
+<p>In Netbeans, open the plugins manager by selecting the menu <code>Tools &gt;Plugins</code>.</p>
+<p>In the plugin manager, select the <code>Downloaded</code> tab.</p>
+<p>Select the <code>Add Plugins...</code> button</p>
+<p>Open the <code>/opt/netbeans/plugins/nb-scala-6.7v1.1.0rc1</code> directory in the <code>Add Plugins</code> diaglog box and select all the <code>*.nbm</code> files</p>
+<img src="http://2.bp.blogspot.com/_yKz3swsAoNQ/S4alja3wxuI/AAAAAAAAADw/9xfLWdE9L_o/s1600-h/Netbeans-plugins-nb-scala.png">
+<pre><code><span class="string">"org-netbeans-libs-scala.nbm"</span> 
+<span class="string">"org-netbeans-modules-languages-execution.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-console.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-core.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-debugger-projects.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-debugger.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-editor.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-kit.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-platform.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-project.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-refactoring.nbm"</span> 
+<span class="string">"org-netbeans-modules-scala-stdplatform.nbm"</span> 
+<span class="string">"xtc.nbm"</span>
+</code></pre><p>Select Install to add the plugins to Netbeans and follow the plugins installer wizard.</p>
+<p>Important: when configuring the scala plugins, make sure you enter the correct path to the scala install as I have not found a way to change the Scala default environment in the plugin once configured.</p>
+<h2 id="Start_a_Scala_Project_in_Netbeans">Start a Scala Project in Netbeans</h2><img src="http://4.bp.blogspot.com/_yKz3swsAoNQ/S4am4rbNndI/AAAAAAAAAD4/NrHTQG-LQhc/s1600-h/Netbeans-projects-scala-application.png" class="img-code"> 
+<p>To create a new Scala project, open the project wizard by selecting <code>File &gt; New Project</code> or use the keyboard shortcut <code>Ctrl-Shift N</code>.</p>
+<p>From the Categories list, select the Scala folder.</p>
+<p>From the project list select <code>Scala Application</code></p>
+<img src="http://1.bp.blogspot.com/_yKz3swsAoNQ/S4aoM0RFfrI/AAAAAAAAAEA/adDp0l6dDmQ/s1600-h/Netbeans-projects-scala-app-details.png" class="img-code"> 
+<p>Enter the details of your Scala application</p>
+<img src="http://4.bp.blogspot.com/_yKz3swsAoNQ/S4aoqkwdckI/AAAAAAAAAEI/BCgj2fyX0HU/s1600-h/Netbeans-scala-filetypes.png" class="img-code">
+<p>Add Scala traits, objects and classes to the project</p>
+<p>Go get functional !!!</p>
+<p><a href="https://twitter.com/jr0cket" target="_blank" rel="external">@jr0cket</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jr0cket.co.uk/2010/02/scala-development-in-netbeans-and.html.html" data-id="ci7f216ad0097fyu3gn9g9ry8" class="article-share-link">Share</a>
+      
+        <a href="http://jr0cket.co.uk/2010/02/scala-development-in-netbeans-and.html.html#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netbeans/">netbeans</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scala/">scala</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/02/bdd-with-jbehave-and-netbeans-first.html.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          BDD With JBehave and Netbeans - a First Taste
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/02/acceptance-test-driving-development-by.html.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Acceptance-Test Driven Development - John Smart</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/clean-git-commits-with-emacs-magit.html">Clean Git Commits With Emacs Magit</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/custom-powerline-theme-for-Emacs-modeline.html">Custom Powerline Theme for Emacs Modeline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-emacs-modeline-with-powerline.html">Tweaking Emacs Modeline With Powerline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/getting-started-with-cider-repl-for-clojure-on-emacs-live.html">Getting Started With Cider Repl for Clojure on Emacs Live</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-light-table-for-a-great-clojure-experience.html">Tweaking Light Table for a Great Clojure Experience</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/faster-clojure-repl-startup-with-java-9-snapshot.html">Faster Clojure REPL Startup With Java 9 Snapshot</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/clojure-with-lighttable-in-emacs-mode.html">Clojure With Light Table and Emacs Keybindings</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/quick-guide-to-github-pull-requests.html">Quick Guide to Github Pull Requests</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/contributing-to-open-source-projects.html">Contributing to Open Source Projects</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/anyone-can-deploy-your-app-with-heroku-button.html">Anyone Can Deploy Your App With Heroku Button</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/agile/">agile</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blogging/">blogging</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book-reviews/">book-reviews</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cloud/">cloud</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/community/">community</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-docs/">dev-docs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-tools/">dev-tools</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/events/">events</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/presenting/">presenting</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4clojure/" style="font-size: 10px;">4clojure</a><a href="/tags/6ThinkingHats/" style="font-size: 10px;">6ThinkingHats</a><a href="/tags/agile/" style="font-size: 20px;">agile</a><a href="/tags/agilecambridge/" style="font-size: 10px;">agilecambridge</a><a href="/tags/amazon/" style="font-size: 10px;">amazon</a><a href="/tags/android/" style="font-size: 10px;">android</a><a href="/tags/atlassian/" style="font-size: 15.63px;">atlassian</a><a href="/tags/bdd/" style="font-size: 10.63px;">bdd</a><a href="/tags/blender/" style="font-size: 10px;">blender</a><a href="/tags/bookreview/" style="font-size: 10px;">bookreview</a><a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a><a href="/tags/caftsmanship/" style="font-size: 10px;">caftsmanship</a><a href="/tags/ci/" style="font-size: 11.25px;">ci</a><a href="/tags/clojure/" style="font-size: 18.75px;">clojure</a><a href="/tags/clojurescript/" style="font-size: 10px;">clojurescript</a><a href="/tags/cloud/" style="font-size: 10.63px;">cloud</a><a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a><a href="/tags/collaboration/" style="font-size: 10.63px;">collaboration</a><a href="/tags/depreciated/" style="font-size: 10px;">depreciated</a><a href="/tags/devoxx/" style="font-size: 10px;">devoxx</a><a href="/tags/dibiconf/" style="font-size: 10px;">dibiconf</a><a href="/tags/dns/" style="font-size: 10px;">dns</a><a href="/tags/dvcs/" style="font-size: 10px;">dvcs</a><a href="/tags/emacs/" style="font-size: 17.5px;">emacs</a><a href="/tags/emacslive/" style="font-size: 11.25px;">emacslive</a><a href="/tags/estimation/" style="font-size: 10px;">estimation</a><a href="/tags/euroclojure/" style="font-size: 10px;">euroclojure</a><a href="/tags/fonts/" style="font-size: 10px;">fonts</a><a href="/tags/gdc/" style="font-size: 10px;">gdc</a><a href="/tags/gimp/" style="font-size: 10.63px;">gimp</a><a href="/tags/git/" style="font-size: 18.13px;">git</a><a href="/tags/github/" style="font-size: 13.75px;">github</a><a href="/tags/google/" style="font-size: 11.88px;">google</a><a href="/tags/graphics/" style="font-size: 10px;">graphics</a><a href="/tags/hackathon/" style="font-size: 11.25px;">hackathon</a><a href="/tags/hackday/" style="font-size: 10.63px;">hackday</a><a href="/tags/hackference/" style="font-size: 10px;">hackference</a><a href="/tags/health/" style="font-size: 10px;">health</a><a href="/tags/heroku/" style="font-size: 14.38px;">heroku</a><a href="/tags/hexo/" style="font-size: 16.25px;">hexo</a><a href="/tags/hindsight/" style="font-size: 11.25px;">hindsight</a><a href="/tags/hub/" style="font-size: 10px;">hub</a><a href="/tags/inkscape/" style="font-size: 11.25px;">inkscape</a><a href="/tags/java/" style="font-size: 11.25px;">java</a><a href="/tags/javascript/" style="font-size: 10px;">javascript</a><a href="/tags/jaxlondon/" style="font-size: 10.63px;">jaxlondon</a><a href="/tags/jbehave/" style="font-size: 10px;">jbehave</a><a href="/tags/junit/" style="font-size: 10px;">junit</a><a href="/tags/kanban/" style="font-size: 16.88px;">kanban</a><a href="/tags/leadership/" style="font-size: 10px;">leadership</a><a href="/tags/lean/" style="font-size: 10px;">lean</a><a href="/tags/learning/" style="font-size: 10px;">learning</a><a href="/tags/leiningen/" style="font-size: 10.63px;">leiningen</a><a href="/tags/lenovo/" style="font-size: 13.13px;">lenovo</a><a href="/tags/lighttable/" style="font-size: 12.5px;">lighttable</a><a href="/tags/ljcjug/" style="font-size: 12.5px;">ljcjug</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/macosx/" style="font-size: 10px;">macosx</a><a href="/tags/magit/" style="font-size: 11.25px;">magit</a><a href="/tags/markdown/" style="font-size: 10px;">markdown</a><a href="/tags/mentoring/" style="font-size: 10px;">mentoring</a><a href="/tags/migration/" style="font-size: 10px;">migration</a><a href="/tags/monkigras/" style="font-size: 10.63px;">monkigras</a><a href="/tags/motivation/" style="font-size: 10px;">motivation</a><a href="/tags/netbeans/" style="font-size: 11.88px;">netbeans</a><a href="/tags/nodejs/" style="font-size: 11.25px;">nodejs</a><a href="/tags/octopress/" style="font-size: 12.5px;">octopress</a><a href="/tags/openjdk/" style="font-size: 10px;">openjdk</a><a href="/tags/org-mode/" style="font-size: 10px;">org-mode</a><a href="/tags/orgmode/" style="font-size: 12.5px;">orgmode</a><a href="/tags/overtone/" style="font-size: 10px;">overtone</a><a href="/tags/parody/" style="font-size: 10px;">parody</a><a href="/tags/persona/" style="font-size: 10px;">persona</a><a href="/tags/presenting/" style="font-size: 10px;">presenting</a><a href="/tags/process/" style="font-size: 10px;">process</a><a href="/tags/qcon/" style="font-size: 11.25px;">qcon</a><a href="/tags/revealjs/" style="font-size: 11.25px;">revealjs</a><a href="/tags/salesforce/" style="font-size: 11.25px;">salesforce</a><a href="/tags/scala/" style="font-size: 15px;">scala</a><a href="/tags/scribus/" style="font-size: 10.63px;">scribus</a><a href="/tags/scrum/" style="font-size: 10.63px;">scrum</a><a href="/tags/security/" style="font-size: 10px;">security</a><a href="/tags/slashdot/" style="font-size: 10px;">slashdot</a><a href="/tags/sublimetext/" style="font-size: 10px;">sublimetext</a><a href="/tags/tdd/" style="font-size: 10.63px;">tdd</a><a href="/tags/themes/" style="font-size: 10px;">themes</a><a href="/tags/ubuntu/" style="font-size: 19.38px;">ubuntu</a><a href="/tags/unity/" style="font-size: 10.63px;">unity</a><a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a><a href="/tags/visualisation/" style="font-size: 10px;">visualisation</a><a href="/tags/wiki/" style="font-size: 10px;">wiki</a><a href="/tags/xpdays/" style="font-size: 10px;">xpdays</a><a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Stevenson<br>
+      <a href="http://twitter.com/jr0cket" target="_blank">@jr0cket</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://jr0cket.co.uk/developer-guides" class="mobile-nav-link">DevGuides</a>
+  
+    <a href="http://jr0cket.co.uk/slides" class="mobile-nav-link">Slides</a>
+  
+    <a href="/workshops" class="mobile-nav-link">Workshops</a>
+  
+    <a href="/clojure" class="mobile-nav-link">Clojure</a>
+  
+    <a href="/hexo" class="mobile-nav-link">Hexo</a>
+  
+    <a href="http://ubuntu.jr0cket.co.uk" class="mobile-nav-link">Ubuntu</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jr0cketcommunitydevelopre';
+  
+  var disqus_url = 'http://jr0cket.co.uk/2010/02/scala-development-in-netbeans-and.html.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<div id="scroll2top" style="position:fixed;bottom:150px;right:50px;cursor: pointer;Z-index:9999">
+<a title="返回顶部" href="#"><img src="/scroll2top/scrollup.png"/></a>
+</div>
+<script src="/scroll2top/scroll2top.js"></script>
+
+
+
+  </div>
+</body>
+</html>

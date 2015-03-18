@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jr0cket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Developing the app - Persisting the data  Now we have a Task model, its time to persist the tasks in a database to make the application useful. Lets start by enabling a database in our application. In">
+<meta property="og:type" content="website">
+<meta property="og:title" content="jr0cket">
+<meta property="og:url" content="http://jr0cket.co.uk/heroku-java-play2-workshop/08-developing-the-app-persisting-data.html">
+<meta property="og:site_name" content="jr0cket">
+<meta property="og:description" content="Developing the app - Persisting the data  Now we have a Task model, its time to persist the tasks in a database to make the application useful. Lets start by enabling a database in our application. In">
+<meta property="og:image" content="images/08x01-play-app-creating-tasks.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jr0cket">
+<meta name="twitter:description" content="Developing the app - Persisting the data  Now we have a Task model, its time to persist the tasks in a database to make the application useful. Lets start by enabling a database in our application. In">
+<meta name="twitter:creator" content="@jr0cket">
+  
+    <link rel="alternative" href="/atom.xml" title="jr0cket" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28030709-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jr0cket</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">community developer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/developer-guides">DevGuides</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/slides">Slides</a>
+        
+          <a class="main-nav-link" href="/workshops">Workshops</a>
+        
+          <a class="main-nav-link" href="/clojure">Clojure</a>
+        
+          <a class="main-nav-link" href="/hexo">Hexo</a>
+        
+          <a class="main-nav-link" href="http://ubuntu.jr0cket.co.uk">Ubuntu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/jr0cket" target="_blank"></a>
+        <a id="nav-linkedin-link" class="nav-icon" href="https://uk.linkedin.com/in/jr0cket" target="_blank"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/jr0cket" target="_blank"></a>
+        <a id="nav-googleplus-link" class="nav-icon" href="https://plus.google.com/117080433375668558463" target="_blank"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://jr0cket.co.uk"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/heroku-java-play2-workshop/08-developing-the-app-persisting-data.html" class="article-date">
+  <time datetime="2015-03-18T15:08:46.220Z" itemprop="datePublished">18 Mar 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Developing_the_app_-_Persisting_the_data">Developing the app - Persisting the data</h1><p>  Now we have a Task model, its time to persist the tasks in a database to make the application useful. Lets start by enabling a database in our application. In the <code>conf/application.conf</code> file, add:</p>
+<pre><code>db<span class="class">.default</span><span class="class">.driver</span>=org<span class="class">.h2</span><span class="class">.Driver</span>
+db<span class="class">.default</span><span class="class">.url</span>=<span class="string">"jdbc:h2:mem:play"</span>
+</code></pre><p>For now we will use a simple in memory database using H2. No need to restart the server, refreshing the browser is enough to set up the database.</p>
+<p>We will use EBean (the default Object Relational Model tool for Play framework) in this tutorial to query the database. So you’ll have to enable it in the <code>conf/application.conf</code> file as well:</p>
+<pre><code>ebean.<span class="keyword">default</span>=<span class="string">"models.*"</span>
+</code></pre><p>By doing this we create an Ebean server connected to the default datasource, managing all entities found in the models package. Now it’s time to transform our <strong>Task class</strong> to a valid EBean entity:</p>
+<pre><code><span class="keyword">package</span> models;
+
+<span class="keyword">import</span> java.util.*;
+
+<span class="keyword">import</span> play.db.ebean.*;
+<span class="keyword">import</span> play.data.validation.<span class="type">Constraints</span>.*;
+
+<span class="keyword">import</span> javax.persistence.*;
+
+<span class="annotation">@Entity</span>
+public <span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Model</span> {</span>
+
+  <span class="annotation">@Id</span>
+  public <span class="type">Long</span> id;
+
+  <span class="annotation">@Required</span>
+  public <span class="type">String</span> label;
+
+  public static <span class="type">Finder</span>&lt;<span class="type">Long</span>,<span class="type">Task</span>&gt; find = <span class="keyword">new</span> <span class="type">Finder</span>(
+    <span class="type">Long</span>.<span class="keyword">class</span>, <span class="type">Task</span>.<span class="keyword">class</span>
+  );
+
+  ...
+</code></pre><p>  We made the Task class extend the <code>play.db.ebean.Model</code> super class to have access to Play built-in Ebean helper. We also added proper persistence annotations, and created a find helper to initiate queries.</p>
+<p>  Lets implement the CRUD operations:</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">static</span> List&lt;<span class="keyword">Task</span>&gt; all() {
+  <span class="keyword">return</span> <span class="keyword">find</span>.all();
+}
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> create(<span class="keyword">Task</span> <span class="keyword">task</span>) {
+  <span class="keyword">task</span>.save();
+}
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">delete</span>(<span class="keyword">Long</span> id) {
+  <span class="keyword">find</span>.ref(id).<span class="keyword">delete</span>();
+}
+</code></pre><h2 id="Setting_up_the_H2_database">Setting up the H2 database</h2><p>In conf/application.conf uncomment out the following lines</p>
+<pre><code><span class="preprocessor"># Database configuration</span>
+<span class="preprocessor"># ~~~~~</span>
+<span class="preprocessor"># You can declare as many datasources as you want.</span>
+<span class="preprocessor"># By convention, the default datasource is named `default`</span>
+<span class="preprocessor">#</span>
+db.<span class="keyword">default</span>.driver=org.h2.Driver
+db.<span class="keyword">default</span>.url=<span class="string">"jdbc:h2:mem:play"</span>
+<span class="preprocessor"># db.default.user=sa</span>
+<span class="preprocessor"># db.default.password=""</span>
+<span class="preprocessor">#</span>
+</code></pre><p>  Once you save the changes to your file and refresh the browser, the development environment will now generate a script and populate the database with a table to store your tasks.</p>
+<p>You can see this script in <strong>conf/evolutions/default/1.sql</strong></p>
+<p>  Now you can play again with the application, creating new tasks should work.</p>
+<p>  Note: In the production environment, like the one you deploy on Heroku, the evolutions database script will not ru (running scripts could over-write production data, so its off by default).  To run the database script in your Heroku environment you need to add the options</p>
+<pre><code>-DapplyEvolutions.<span class="keyword">default</span>=<span class="literal">true</span>
+</code></pre><p>From Heroku Logs:  </p>
+<pre><code><span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">01.655942</span>+<span class="number">00</span>:<span class="number">00</span> heroku[web<span class="number">.1</span>]: Starting process with command `target<span class="regexp">/universal/</span>stage<span class="regexp">/bin/</span>play-todo-postgres -Dhttp.port=<span class="number">23040</span>`
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">02.777595</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: Picked up <span class="string">JAVA_TOOL_OPTIONS:</span>  -Djava.rmi.server.useCodebaseOnly=<span class="literal">true</span>
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">03.417940</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: Play server process ID is <span class="number">2</span>
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.255570</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: [info] play - database [<span class="keyword">default</span>] connected at <span class="string">jdbc:</span><span class="string">h2:</span><span class="string">mem:</span>play
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: label                     varchar(<span class="number">255</span>),
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: [warn] play - Your production database [<span class="keyword">default</span>] needs evolutions! 
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: # --- <span class="string">Rev:</span><span class="number">1</span>,Ups - <span class="number">2</span>af6baa
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: create table task (
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: id                        bigint not <span class="literal">null</span>,
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: constraint pk_task primary key (id))
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: ;
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: 
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: create sequence task_seq;
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.981008</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: 
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.982385</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: [warn] play - Run with -DapplyEvolutions.<span class="keyword">default</span>=<span class="literal">true</span> <span class="keyword">if</span> you want to run them automatically (be careful)
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.985048</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: Oops, cannot start the server.
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.985048</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]: @<span class="number">6</span><span class="string">g034o2jb:</span> Database <span class="string">'default'</span> needs evolution!
+<span class="number">2013</span>-<span class="number">10</span>-<span class="number">11</span><span class="string">T16:</span><span class="number">34</span>:<span class="number">05.985410</span>+<span class="number">00</span>:<span class="number">00</span> app[web<span class="number">.1</span>]:     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$<span class="number">1</span>$$anonfun$apply$<span class="number">1.</span>apply$mcV$sp(Evolutions.<span class="string">scala:</span><span class="number">484</span>)
+</code></pre><h2 id="Running_the_Database_Script_to_create_the_table_in_H2_on_Heroku">Running the Database Script to create the table in H2 on Heroku</h2><p>  Create a text file called Procfile.  This file should not have any file extension. </p>
+<p>  Edit the Procfile and add the following line to define how the app is run, along with the database script to create the table</p>
+<pre><code><span class="string">web:</span> target<span class="regexp">/universal/</span>stage<span class="regexp">/bin/</span>play-todo-postgres -Dhttp.port=$PORT -DapplyEvolutions.<span class="keyword">default</span>=<span class="literal">true</span>
+</code></pre><p><img class="img-code" src="images/08x01-play-app-creating-tasks.png"></p>
+<blockquote>
+<p>Read more about the <a href="http://www.playframework.com/documentation/2.1.0/JavaEbean" target="_blank" rel="external">Ebean Object Relational Mapper</a> in Play framework.</p>
+</blockquote>
+<h2 id="Deleting_tasks">Deleting tasks</h2><p>  Now that we can create tasks, we need to be able to delete them. Very simple, we just need to finish the implementation of the deleteTask action:</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">static</span> Result deleteTask(<span class="keyword">Long</span> id) {
+  <span class="keyword">Task</span>.<span class="keyword">delete</span>(id);
+  <span class="keyword">return</span> redirect(routes.Application.tasks());
+}
+</code></pre><p>  Now you should be able to delete your tasks as well as add them.</p>
+<h2 id="Commit_your_changes_locally_and_deploy">Commit your changes locally and deploy</h2><p>  Again as we have made a significant change to the web app functionality, even though its not complete, we should commit those changes to Git.</p>
+<p>  Add these changes to your local git repository as follows:</p>
+<pre><code>git <span class="keyword">add</span> .
+git commit -m <span class="string">"added Task model, forms and page"</span>
+</code></pre><p>  Push this commit to Heroku to deploy the new version of the code using the command</p>
+<pre><code>git <span class="keyword">push</span> heroku master
+</code></pre><p>  Reload your browser to check the live website has been updated, or use the command <code>heroku open</code> </p>
+<p><a href="#top">Back to top…</a><br><a href="09-using-postgres-database.html">Next…</a><br><a href="index.html">Back to Workshop home</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jr0cket.co.uk/heroku-java-play2-workshop/08-developing-the-app-persisting-data.html" data-id="ci7f2166w001wfyu34014ukmj" class="article-share-link">Share</a>
+      
+        <a href="http://jr0cket.co.uk/heroku-java-play2-workshop/08-developing-the-app-persisting-data.html#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/clean-git-commits-with-emacs-magit.html">Clean Git Commits With Emacs Magit</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/custom-powerline-theme-for-Emacs-modeline.html">Custom Powerline Theme for Emacs Modeline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-emacs-modeline-with-powerline.html">Tweaking Emacs Modeline With Powerline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/getting-started-with-cider-repl-for-clojure-on-emacs-live.html">Getting Started With Cider Repl for Clojure on Emacs Live</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-light-table-for-a-great-clojure-experience.html">Tweaking Light Table for a Great Clojure Experience</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/faster-clojure-repl-startup-with-java-9-snapshot.html">Faster Clojure REPL Startup With Java 9 Snapshot</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/clojure-with-lighttable-in-emacs-mode.html">Clojure With Light Table and Emacs Keybindings</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/quick-guide-to-github-pull-requests.html">Quick Guide to Github Pull Requests</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/contributing-to-open-source-projects.html">Contributing to Open Source Projects</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/anyone-can-deploy-your-app-with-heroku-button.html">Anyone Can Deploy Your App With Heroku Button</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/agile/">agile</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blogging/">blogging</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book-reviews/">book-reviews</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cloud/">cloud</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/community/">community</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-docs/">dev-docs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-tools/">dev-tools</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/events/">events</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/presenting/">presenting</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4clojure/" style="font-size: 10px;">4clojure</a><a href="/tags/6ThinkingHats/" style="font-size: 10px;">6ThinkingHats</a><a href="/tags/agile/" style="font-size: 20px;">agile</a><a href="/tags/agilecambridge/" style="font-size: 10px;">agilecambridge</a><a href="/tags/amazon/" style="font-size: 10px;">amazon</a><a href="/tags/android/" style="font-size: 10px;">android</a><a href="/tags/atlassian/" style="font-size: 15.63px;">atlassian</a><a href="/tags/bdd/" style="font-size: 10.63px;">bdd</a><a href="/tags/blender/" style="font-size: 10px;">blender</a><a href="/tags/bookreview/" style="font-size: 10px;">bookreview</a><a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a><a href="/tags/caftsmanship/" style="font-size: 10px;">caftsmanship</a><a href="/tags/ci/" style="font-size: 11.25px;">ci</a><a href="/tags/clojure/" style="font-size: 18.75px;">clojure</a><a href="/tags/clojurescript/" style="font-size: 10px;">clojurescript</a><a href="/tags/cloud/" style="font-size: 10.63px;">cloud</a><a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a><a href="/tags/collaboration/" style="font-size: 10.63px;">collaboration</a><a href="/tags/depreciated/" style="font-size: 10px;">depreciated</a><a href="/tags/devoxx/" style="font-size: 10px;">devoxx</a><a href="/tags/dibiconf/" style="font-size: 10px;">dibiconf</a><a href="/tags/dns/" style="font-size: 10px;">dns</a><a href="/tags/dvcs/" style="font-size: 10px;">dvcs</a><a href="/tags/emacs/" style="font-size: 17.5px;">emacs</a><a href="/tags/emacslive/" style="font-size: 11.25px;">emacslive</a><a href="/tags/estimation/" style="font-size: 10px;">estimation</a><a href="/tags/euroclojure/" style="font-size: 10px;">euroclojure</a><a href="/tags/fonts/" style="font-size: 10px;">fonts</a><a href="/tags/gdc/" style="font-size: 10px;">gdc</a><a href="/tags/gimp/" style="font-size: 10.63px;">gimp</a><a href="/tags/git/" style="font-size: 18.13px;">git</a><a href="/tags/github/" style="font-size: 13.75px;">github</a><a href="/tags/google/" style="font-size: 11.88px;">google</a><a href="/tags/graphics/" style="font-size: 10px;">graphics</a><a href="/tags/hackathon/" style="font-size: 11.25px;">hackathon</a><a href="/tags/hackday/" style="font-size: 10.63px;">hackday</a><a href="/tags/hackference/" style="font-size: 10px;">hackference</a><a href="/tags/health/" style="font-size: 10px;">health</a><a href="/tags/heroku/" style="font-size: 14.38px;">heroku</a><a href="/tags/hexo/" style="font-size: 16.25px;">hexo</a><a href="/tags/hindsight/" style="font-size: 11.25px;">hindsight</a><a href="/tags/hub/" style="font-size: 10px;">hub</a><a href="/tags/inkscape/" style="font-size: 11.25px;">inkscape</a><a href="/tags/java/" style="font-size: 11.25px;">java</a><a href="/tags/javascript/" style="font-size: 10px;">javascript</a><a href="/tags/jaxlondon/" style="font-size: 10.63px;">jaxlondon</a><a href="/tags/jbehave/" style="font-size: 10px;">jbehave</a><a href="/tags/junit/" style="font-size: 10px;">junit</a><a href="/tags/kanban/" style="font-size: 16.88px;">kanban</a><a href="/tags/leadership/" style="font-size: 10px;">leadership</a><a href="/tags/lean/" style="font-size: 10px;">lean</a><a href="/tags/learning/" style="font-size: 10px;">learning</a><a href="/tags/leiningen/" style="font-size: 10.63px;">leiningen</a><a href="/tags/lenovo/" style="font-size: 13.13px;">lenovo</a><a href="/tags/lighttable/" style="font-size: 12.5px;">lighttable</a><a href="/tags/ljcjug/" style="font-size: 12.5px;">ljcjug</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/macosx/" style="font-size: 10px;">macosx</a><a href="/tags/magit/" style="font-size: 11.25px;">magit</a><a href="/tags/markdown/" style="font-size: 10px;">markdown</a><a href="/tags/mentoring/" style="font-size: 10px;">mentoring</a><a href="/tags/migration/" style="font-size: 10px;">migration</a><a href="/tags/monkigras/" style="font-size: 10.63px;">monkigras</a><a href="/tags/motivation/" style="font-size: 10px;">motivation</a><a href="/tags/netbeans/" style="font-size: 11.88px;">netbeans</a><a href="/tags/nodejs/" style="font-size: 11.25px;">nodejs</a><a href="/tags/octopress/" style="font-size: 12.5px;">octopress</a><a href="/tags/openjdk/" style="font-size: 10px;">openjdk</a><a href="/tags/org-mode/" style="font-size: 10px;">org-mode</a><a href="/tags/orgmode/" style="font-size: 12.5px;">orgmode</a><a href="/tags/overtone/" style="font-size: 10px;">overtone</a><a href="/tags/parody/" style="font-size: 10px;">parody</a><a href="/tags/persona/" style="font-size: 10px;">persona</a><a href="/tags/presenting/" style="font-size: 10px;">presenting</a><a href="/tags/process/" style="font-size: 10px;">process</a><a href="/tags/qcon/" style="font-size: 11.25px;">qcon</a><a href="/tags/revealjs/" style="font-size: 11.25px;">revealjs</a><a href="/tags/salesforce/" style="font-size: 11.25px;">salesforce</a><a href="/tags/scala/" style="font-size: 15px;">scala</a><a href="/tags/scribus/" style="font-size: 10.63px;">scribus</a><a href="/tags/scrum/" style="font-size: 10.63px;">scrum</a><a href="/tags/security/" style="font-size: 10px;">security</a><a href="/tags/slashdot/" style="font-size: 10px;">slashdot</a><a href="/tags/sublimetext/" style="font-size: 10px;">sublimetext</a><a href="/tags/tdd/" style="font-size: 10.63px;">tdd</a><a href="/tags/themes/" style="font-size: 10px;">themes</a><a href="/tags/ubuntu/" style="font-size: 19.38px;">ubuntu</a><a href="/tags/unity/" style="font-size: 10.63px;">unity</a><a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a><a href="/tags/visualisation/" style="font-size: 10px;">visualisation</a><a href="/tags/wiki/" style="font-size: 10px;">wiki</a><a href="/tags/xpdays/" style="font-size: 10px;">xpdays</a><a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Stevenson<br>
+      <a href="http://twitter.com/jr0cket" target="_blank">@jr0cket</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://jr0cket.co.uk/developer-guides" class="mobile-nav-link">DevGuides</a>
+  
+    <a href="http://jr0cket.co.uk/slides" class="mobile-nav-link">Slides</a>
+  
+    <a href="/workshops" class="mobile-nav-link">Workshops</a>
+  
+    <a href="/clojure" class="mobile-nav-link">Clojure</a>
+  
+    <a href="/hexo" class="mobile-nav-link">Hexo</a>
+  
+    <a href="http://ubuntu.jr0cket.co.uk" class="mobile-nav-link">Ubuntu</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jr0cketcommunitydevelopre';
+  
+  var disqus_url = 'http://jr0cket.co.uk/heroku-java-play2-workshop/08-developing-the-app-persisting-data.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<div id="scroll2top" style="position:fixed;bottom:150px;right:50px;cursor: pointer;Z-index:9999">
+<a title="返回顶部" href="#"><img src="/scroll2top/scrollup.png"/></a>
+</div>
+<script src="/scroll2top/scroll2top.js"></script>
+
+
+
+  </div>
+</body>
+</html>

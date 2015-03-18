@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jr0cket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Setting up your environmentBefore you get started with this workshop you will need to have:
+
+An Internet connection
+An Heroku account
+The Heroku toolbelt (heroku)
+A public key added to heroku (heroku">
+<meta property="og:type" content="website">
+<meta property="og:title" content="jr0cket">
+<meta property="og:url" content="http://jr0cket.co.uk/heroku-java-play2-workshop/00-setting-up-your-environment.html">
+<meta property="og:site_name" content="jr0cket">
+<meta property="og:description" content="Setting up your environmentBefore you get started with this workshop you will need to have:
+
+An Internet connection
+An Heroku account
+The Heroku toolbelt (heroku)
+A public key added to heroku (heroku">
+<meta property="og:image" content="images/00x01-play-help-first-run-output.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jr0cket">
+<meta name="twitter:description" content="Setting up your environmentBefore you get started with this workshop you will need to have:
+
+An Internet connection
+An Heroku account
+The Heroku toolbelt (heroku)
+A public key added to heroku (heroku">
+<meta name="twitter:creator" content="@jr0cket">
+  
+    <link rel="alternative" href="/atom.xml" title="jr0cket" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28030709-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jr0cket</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">community developer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/developer-guides">DevGuides</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/slides">Slides</a>
+        
+          <a class="main-nav-link" href="/workshops">Workshops</a>
+        
+          <a class="main-nav-link" href="/clojure">Clojure</a>
+        
+          <a class="main-nav-link" href="/hexo">Hexo</a>
+        
+          <a class="main-nav-link" href="http://ubuntu.jr0cket.co.uk">Ubuntu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/jr0cket" target="_blank"></a>
+        <a id="nav-linkedin-link" class="nav-icon" href="https://uk.linkedin.com/in/jr0cket" target="_blank"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/jr0cket" target="_blank"></a>
+        <a id="nav-googleplus-link" class="nav-icon" href="https://plus.google.com/117080433375668558463" target="_blank"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://jr0cket.co.uk"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/heroku-java-play2-workshop/00-setting-up-your-environment.html" class="article-date">
+  <time datetime="2015-03-18T15:08:46.220Z" itemprop="datePublished">18 Mar 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Setting_up_your_environment"><a id="top">Setting up your environment</a></h1><p>Before you get started with this workshop you will need to have:</p>
+<ul>
+<li>An Internet connection</li>
+<li>An Heroku account</li>
+<li>The Heroku toolbelt (<code>heroku</code>)</li>
+<li>A public key added to heroku (<code>heroku keys</code>)</li>
+<li>Java development environment - JDK (<code>javac</code>)</li>
+<li><p>Play framework (<code>play</code>)</p>
+<p>This section will help you set up any missing requirements for this workshop.  </p>
+</li>
+</ul>
+<blockquote>
+<p>Note: these requiremenst are specific to this workshop.  To use Heroku outside of this workshop, the minimum you need is an Heroku account and a Git client.*</p>
+</blockquote>
+<h2 id="Create_an_Heroku_Account_(if_you_dont_already_have_one)">Create an Heroku Account (if you dont already have one)</h2><p>  You can create a free account at the Heroku website.  You need an account in order to deploy and manage the applications on Heroku.</p>
+<ol>
+<li>In your browser navigate to: <a href="https://heroku.com/signup" target="_blank" rel="external">https://heroku.com/signup</a></li>
+<li>Enter your email address</li>
+<li>Select <code>Sign Up</code></li>
+<li>Check your email for a message from Heroku and navigate to the verification page given in that message.</li>
+<li>On the verification page, enter a suitable password for your account</li>
+</ol>
+<h2 id="Installing_the_Heroku_Toolbelt">Installing the Heroku Toolbelt</h2><p>  The Heroku toolbelt is a command line application for creating and managing your applications on Heroku.  Its a really useful tool.  The toolbelt also contains a Git client, although you can use your own Git client if you prefer.</p>
+<p>  When you created your account, the Heroku website directs you to download the Heroku toolbelt.  It is also available from the <a href="http://toolbelt.heroku.com" target="_blank" rel="external">Heroku toolbelt website</a> if you do not have it on your development machine.</p>
+<p>  Install the Heroku toolbelt version for your operating system and test it is installed by using the following command </p>
+<pre><code>heroku
+</code></pre><p>  If the Heroku toolbelt is correctly installed, you will see a list of the Heroku tasks you can carry out.</p>
+<h2 id="Setting_up_secure_access_to_Heroku_(public_key)">Setting up secure access to Heroku (public key)</h2><p>  When you deploy your application to Heroku it uses a secure shell (SSH) connection.  This ensures your code is transfered securely and allows a secure way for Heroku to confirm you are authorised to access the application.  This SSH connection requires you to add a public key to your Heroku account.</p>
+<p>  The first time you work with Heroku you can use the following command to create a public key for you or upload any existing public key you may have:</p>
+<pre><code><span class="title">heroku</span> login
+</code></pre><p>  If you create your own key, ensure that the public key has your email as a comment.  For example, to create a key with the email address foo@bar.com you use the following command:</p>
+<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> <span class="string">"foo@bar.com"</span>
+</code></pre><p>  To check what keys have been added to your Heroku account, using the following command:</p>
+<pre><code>heroku <span class="built_in">keys</span>
+</code></pre><p>  If you have already create your own key, ensure that it has your email as a comment.  If you have added the key to heroku and use <code>heroku keys</code> you should see your key listed and showing your email address.</p>
+<p>  Should you need or want to create your own public key, you can use the following command:</p>
+<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> <span class="string">"foo@bar.com"</span>
+</code></pre><p>  To add a new key to Heroku, use the following command:</p>
+<pre><code>heroku <span class="built_in">keys</span>:<span class="built_in">add</span> 
+</code></pre><p>  If you have only one public key, this command will just add it to heroku without prompting.  If you have more than one pubic key then heroku will prompt you as to which key you want to add.</p>
+<p>  If you need to add a new key to heroku, use the following command using the full path and name of the key:</p>
+<pre><code>heroku <span class="built_in">keys</span>:<span class="built_in">add</span> path/<span class="built_in">to</span>/key.pub
+</code></pre><h1 id="Setting_up_Github">Setting up Github</h1><p>  When you install the Heroku toolbelt it includes a Git client.  You can also use any other git client you want, either command line or graphical tool.</p>
+<p>  You do need to identify yourself to Git before carrying out any commits to your local repository.  You must specify git user.email and optionally specify git user.name.</p>
+<p>  To add your git name and email, either edit the <strong>~/.gitconfig</strong> file or run the following two commands:</p>
+<pre><code>git config --global user<span class="class">.name</span> <span class="string">"your name"</span>
+git config --global user<span class="class">.email</span> <span class="string">"your.name@domain.com"</span>
+</code></pre><p>  To check what has already been added to Git (some gui clients add information), you can list all the current configuration entries:</p>
+<pre><code>git config <span class="comment">--list</span>
+</code></pre><p>  If you are still finding your way with Git, take a look at the seperate Git and Github tutorial](<a href="http://git-and-github-workshop.herokuapp.com/" target="_blank" rel="external">http://git-and-github-workshop.herokuapp.com/</a>).</p>
+<h2 id="Java_SE_6_or_greater">Java SE 6 or greater</h2><p>  As you are building a Java application you need to have the compiler that comes with the Java Development Kit (JDK) installed.  If you are not sure, you can test the java compiler is installed using the command for the Java compiler:</p>
+<pre><code>$ javac -<span class="property">version</span>
+javac <span class="number">1.6</span><span class="number">.0</span>_27
+</code></pre><p>  If the <code>javac</code> command is not recognised then download and install Java Standard Edition JDK from Oracle from the following website</p>
+<p>  <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<p>  Follow the install instructions for the Java development kit for your operating system on the Oracle website.  You should be able to run <code>javac</code> from the command line without having to specify the full path.  You may need to start a new command line window after the JDK installtion in order for <code>javac</code> to work.</p>
+<blockquote>
+<p>Note: it is not sufficient to just have the java runtime installed: <code>java</code>.  Java code you work with in this tutorial needs to be compiled and therefore needs the java compiler, <code>javac</code></p>
+</blockquote>
+<h2 id="Download_&amp;_install_Play_framework_version_2">Download &amp; install Play framework version 2</h2><p>Download the <a href="http://www.playframework.com/download" target="_blank" rel="external">latest version of the Play framework</a> and extract the archive to a location where you have both read and write access.  For example, create a ~/apps/play folder and extract the archive there.</p>
+<blockquote>
+<p>Note: Play updates files within its own folder, so on MacOSX and Ubuntu avoid installing play in /opt, /usr/local or anywhere else you would need special permission to write to unless you also update the play folder write permissions.*</p>
+</blockquote>
+<h3 id="Add_Play_framework_to_your_executable_path">Add Play framework to your executable path</h3><p>  In order to run play commands from your project folders you should add the folder you extracted Play framework into the system PATH.</p>
+<p>  <strong>On Linux and MacOSX:</strong></p>
+<p>  Add the following text to the file <code>~/.profile</code></p>
+<pre><code>`export <span class="constant">PATH=</span><span class="variable">$PATH</span><span class="symbol">:/path/to/play20`</span>
+</code></pre><p>  Load this updated PATH into your command line using <code>source ~/.profile</code> or open a new terminal window.</p>
+<p>  Make sure that the play script is executable, otherwise do a <code>chmod a+x play</code></p>
+<p>  <strong>On Microsoft Windows</strong></p>
+<p>  Windows uses a global environment variable. Update the PATH in the environment variables to add the path to the Play framework folder, ensure you don’t use a path with spaces. Open a new terminal to make sure the path has been updated.</p>
+<h3 id="Test_Play_framework_is_working">Test Play framework is working</h3><p>  Test play is configured correctly by running the following command:</p>
+<pre><code><span class="keyword">play</span> <span class="keyword">help</span>
+</code></pre><p>  When you first run play it may download extra libraries that it needs to run, so you may need to be connected to the Internet.</p>
+<p><img class="img-code" src="images/00x01-play-help-first-run-output.png"></p>
+<p>  Assuming everything went okay, you are ready to create your first Play application.</p>
+<p><a href="01-getting-started-with-your-app.html">Next</a><br><a href="#top">Back to top…</a><br><a href="index.html">Back to Workshop home</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jr0cket.co.uk/heroku-java-play2-workshop/00-setting-up-your-environment.html" data-id="ci7f216710024fyu3nu7771dw" class="article-share-link">Share</a>
+      
+        <a href="http://jr0cket.co.uk/heroku-java-play2-workshop/00-setting-up-your-environment.html#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/clean-git-commits-with-emacs-magit.html">Clean Git Commits With Emacs Magit</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/custom-powerline-theme-for-Emacs-modeline.html">Custom Powerline Theme for Emacs Modeline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-emacs-modeline-with-powerline.html">Tweaking Emacs Modeline With Powerline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/getting-started-with-cider-repl-for-clojure-on-emacs-live.html">Getting Started With Cider Repl for Clojure on Emacs Live</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-light-table-for-a-great-clojure-experience.html">Tweaking Light Table for a Great Clojure Experience</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/faster-clojure-repl-startup-with-java-9-snapshot.html">Faster Clojure REPL Startup With Java 9 Snapshot</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/clojure-with-lighttable-in-emacs-mode.html">Clojure With Light Table and Emacs Keybindings</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/quick-guide-to-github-pull-requests.html">Quick Guide to Github Pull Requests</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/contributing-to-open-source-projects.html">Contributing to Open Source Projects</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/anyone-can-deploy-your-app-with-heroku-button.html">Anyone Can Deploy Your App With Heroku Button</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/agile/">agile</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blogging/">blogging</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book-reviews/">book-reviews</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cloud/">cloud</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/community/">community</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-docs/">dev-docs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-tools/">dev-tools</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/events/">events</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/presenting/">presenting</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4clojure/" style="font-size: 10px;">4clojure</a><a href="/tags/6ThinkingHats/" style="font-size: 10px;">6ThinkingHats</a><a href="/tags/agile/" style="font-size: 20px;">agile</a><a href="/tags/agilecambridge/" style="font-size: 10px;">agilecambridge</a><a href="/tags/amazon/" style="font-size: 10px;">amazon</a><a href="/tags/android/" style="font-size: 10px;">android</a><a href="/tags/atlassian/" style="font-size: 15.63px;">atlassian</a><a href="/tags/bdd/" style="font-size: 10.63px;">bdd</a><a href="/tags/blender/" style="font-size: 10px;">blender</a><a href="/tags/bookreview/" style="font-size: 10px;">bookreview</a><a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a><a href="/tags/caftsmanship/" style="font-size: 10px;">caftsmanship</a><a href="/tags/ci/" style="font-size: 11.25px;">ci</a><a href="/tags/clojure/" style="font-size: 18.75px;">clojure</a><a href="/tags/clojurescript/" style="font-size: 10px;">clojurescript</a><a href="/tags/cloud/" style="font-size: 10.63px;">cloud</a><a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a><a href="/tags/collaboration/" style="font-size: 10.63px;">collaboration</a><a href="/tags/depreciated/" style="font-size: 10px;">depreciated</a><a href="/tags/devoxx/" style="font-size: 10px;">devoxx</a><a href="/tags/dibiconf/" style="font-size: 10px;">dibiconf</a><a href="/tags/dns/" style="font-size: 10px;">dns</a><a href="/tags/dvcs/" style="font-size: 10px;">dvcs</a><a href="/tags/emacs/" style="font-size: 17.5px;">emacs</a><a href="/tags/emacslive/" style="font-size: 11.25px;">emacslive</a><a href="/tags/estimation/" style="font-size: 10px;">estimation</a><a href="/tags/euroclojure/" style="font-size: 10px;">euroclojure</a><a href="/tags/fonts/" style="font-size: 10px;">fonts</a><a href="/tags/gdc/" style="font-size: 10px;">gdc</a><a href="/tags/gimp/" style="font-size: 10.63px;">gimp</a><a href="/tags/git/" style="font-size: 18.13px;">git</a><a href="/tags/github/" style="font-size: 13.75px;">github</a><a href="/tags/google/" style="font-size: 11.88px;">google</a><a href="/tags/graphics/" style="font-size: 10px;">graphics</a><a href="/tags/hackathon/" style="font-size: 11.25px;">hackathon</a><a href="/tags/hackday/" style="font-size: 10.63px;">hackday</a><a href="/tags/hackference/" style="font-size: 10px;">hackference</a><a href="/tags/health/" style="font-size: 10px;">health</a><a href="/tags/heroku/" style="font-size: 14.38px;">heroku</a><a href="/tags/hexo/" style="font-size: 16.25px;">hexo</a><a href="/tags/hindsight/" style="font-size: 11.25px;">hindsight</a><a href="/tags/hub/" style="font-size: 10px;">hub</a><a href="/tags/inkscape/" style="font-size: 11.25px;">inkscape</a><a href="/tags/java/" style="font-size: 11.25px;">java</a><a href="/tags/javascript/" style="font-size: 10px;">javascript</a><a href="/tags/jaxlondon/" style="font-size: 10.63px;">jaxlondon</a><a href="/tags/jbehave/" style="font-size: 10px;">jbehave</a><a href="/tags/junit/" style="font-size: 10px;">junit</a><a href="/tags/kanban/" style="font-size: 16.88px;">kanban</a><a href="/tags/leadership/" style="font-size: 10px;">leadership</a><a href="/tags/lean/" style="font-size: 10px;">lean</a><a href="/tags/learning/" style="font-size: 10px;">learning</a><a href="/tags/leiningen/" style="font-size: 10.63px;">leiningen</a><a href="/tags/lenovo/" style="font-size: 13.13px;">lenovo</a><a href="/tags/lighttable/" style="font-size: 12.5px;">lighttable</a><a href="/tags/ljcjug/" style="font-size: 12.5px;">ljcjug</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/macosx/" style="font-size: 10px;">macosx</a><a href="/tags/magit/" style="font-size: 11.25px;">magit</a><a href="/tags/markdown/" style="font-size: 10px;">markdown</a><a href="/tags/mentoring/" style="font-size: 10px;">mentoring</a><a href="/tags/migration/" style="font-size: 10px;">migration</a><a href="/tags/monkigras/" style="font-size: 10.63px;">monkigras</a><a href="/tags/motivation/" style="font-size: 10px;">motivation</a><a href="/tags/netbeans/" style="font-size: 11.88px;">netbeans</a><a href="/tags/nodejs/" style="font-size: 11.25px;">nodejs</a><a href="/tags/octopress/" style="font-size: 12.5px;">octopress</a><a href="/tags/openjdk/" style="font-size: 10px;">openjdk</a><a href="/tags/org-mode/" style="font-size: 10px;">org-mode</a><a href="/tags/orgmode/" style="font-size: 12.5px;">orgmode</a><a href="/tags/overtone/" style="font-size: 10px;">overtone</a><a href="/tags/parody/" style="font-size: 10px;">parody</a><a href="/tags/persona/" style="font-size: 10px;">persona</a><a href="/tags/presenting/" style="font-size: 10px;">presenting</a><a href="/tags/process/" style="font-size: 10px;">process</a><a href="/tags/qcon/" style="font-size: 11.25px;">qcon</a><a href="/tags/revealjs/" style="font-size: 11.25px;">revealjs</a><a href="/tags/salesforce/" style="font-size: 11.25px;">salesforce</a><a href="/tags/scala/" style="font-size: 15px;">scala</a><a href="/tags/scribus/" style="font-size: 10.63px;">scribus</a><a href="/tags/scrum/" style="font-size: 10.63px;">scrum</a><a href="/tags/security/" style="font-size: 10px;">security</a><a href="/tags/slashdot/" style="font-size: 10px;">slashdot</a><a href="/tags/sublimetext/" style="font-size: 10px;">sublimetext</a><a href="/tags/tdd/" style="font-size: 10.63px;">tdd</a><a href="/tags/themes/" style="font-size: 10px;">themes</a><a href="/tags/ubuntu/" style="font-size: 19.38px;">ubuntu</a><a href="/tags/unity/" style="font-size: 10.63px;">unity</a><a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a><a href="/tags/visualisation/" style="font-size: 10px;">visualisation</a><a href="/tags/wiki/" style="font-size: 10px;">wiki</a><a href="/tags/xpdays/" style="font-size: 10px;">xpdays</a><a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Stevenson<br>
+      <a href="http://twitter.com/jr0cket" target="_blank">@jr0cket</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://jr0cket.co.uk/developer-guides" class="mobile-nav-link">DevGuides</a>
+  
+    <a href="http://jr0cket.co.uk/slides" class="mobile-nav-link">Slides</a>
+  
+    <a href="/workshops" class="mobile-nav-link">Workshops</a>
+  
+    <a href="/clojure" class="mobile-nav-link">Clojure</a>
+  
+    <a href="/hexo" class="mobile-nav-link">Hexo</a>
+  
+    <a href="http://ubuntu.jr0cket.co.uk" class="mobile-nav-link">Ubuntu</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jr0cketcommunitydevelopre';
+  
+  var disqus_url = 'http://jr0cket.co.uk/heroku-java-play2-workshop/00-setting-up-your-environment.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<div id="scroll2top" style="position:fixed;bottom:150px;right:50px;cursor: pointer;Z-index:9999">
+<a title="返回顶部" href="#"><img src="/scroll2top/scrollup.png"/></a>
+</div>
+<script src="/scroll2top/scroll2top.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Heroku Workshop - JavaScript and Meteor Workshop - WIP | jr0cket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TODO: CCT DevZone presentation - add slides on how to get going with Heroku - ie. creating a new app, or deploying an existing app.  With existing apps, its an opportunity to refactor the app and can">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heroku Workshop - JavaScript and Meteor Workshop - WIP">
+<meta property="og:url" content="http://jr0cket.co.uk/heroku-meteor/wip.html">
+<meta property="og:site_name" content="jr0cket">
+<meta property="og:description" content="TODO: CCT DevZone presentation - add slides on how to get going with Heroku - ie. creating a new app, or deploying an existing app.  With existing apps, its an opportunity to refactor the app and can">
+<meta property="og:image" content="images/04x01-play-error-hello-world.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Heroku Workshop - JavaScript and Meteor Workshop - WIP">
+<meta name="twitter:description" content="TODO: CCT DevZone presentation - add slides on how to get going with Heroku - ie. creating a new app, or deploying an existing app.  With existing apps, its an opportunity to refactor the app and can">
+<meta name="twitter:creator" content="@jr0cket">
+  
+    <link rel="alternative" href="/atom.xml" title="jr0cket" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28030709-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jr0cket</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">community developer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/developer-guides">DevGuides</a>
+        
+          <a class="main-nav-link" href="http://jr0cket.co.uk/slides">Slides</a>
+        
+          <a class="main-nav-link" href="/workshops">Workshops</a>
+        
+          <a class="main-nav-link" href="/clojure">Clojure</a>
+        
+          <a class="main-nav-link" href="/hexo">Hexo</a>
+        
+          <a class="main-nav-link" href="http://ubuntu.jr0cket.co.uk">Ubuntu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/jr0cket" target="_blank"></a>
+        <a id="nav-linkedin-link" class="nav-icon" href="https://uk.linkedin.com/in/jr0cket" target="_blank"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/jr0cket" target="_blank"></a>
+        <a id="nav-googleplus-link" class="nav-icon" href="https://plus.google.com/117080433375668558463" target="_blank"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://jr0cket.co.uk"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/heroku-meteor/wip.html" class="article-date">
+  <time datetime="2015-03-18T15:45:35.840Z" itemprop="datePublished">18 Mar 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Heroku Workshop - JavaScript and Meteor Workshop - WIP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>TODO: CCT DevZone presentation - add slides on how to get going with Heroku - ie. creating a new app, or deploying an existing app.  With existing apps, its an opportunity to refactor the app and can be a way to reduce the risk of dealing with legacy systems (because you can break up your app into several different process and break out functionality across several heroku applications).  This is an extension of where heroku fits into the salesforce world.  Perhaps mention Domain Driven Design.</p>
+<p>TODO: create a stle for italics tag that changes the background colour (and perhaps puts a nice box around the text.</p>
+<p>TODO:  Create a github repository with the built app, with tags to demark the different steps of development </p>
+<p>Stories of other people converting their apps </p>
+<h3 id="the_tryclj_story">the tryclj story</h3><p> took all of 30 minutes to convert the project to heorku.  That consisted of 5 minutes reading how heroku works, 20 minutes realising the project needed a Procfile (to identify the starting point of the application) and a couple of minutes to create the Heroku app, push the code and wait for the dependencies to be pulled in.  Link to blog article.</p>
+<h1 id="Aspects_of_Heroku_to_show">Aspects of Heroku to show</h1><h2 id="Setting_up_account">Setting up account</h2><p>— need to add your credit card details </p>
+<h2 id="Installing_Toolbelt">Installing Toolbelt</h2><p>— heroku commands [app: ps: …]</p>
+<h2 id="Where_to_get_help">Where to get help</h2><p>Developer center (Documentation)</p>
+<p>stack exchange Heroku tag<br>meetups</p>
+<h2 id="Creating_an_Heroku_app">Creating an Heroku app</h2><p>— creating an app<br>— Highlighting supported languages &amp; buildpacks<br>— creating apps in different regions</p>
+<h2 id="Versioning_your_app_with_Git">Versioning your app with Git</h2><p>— setting up git (user.name / user.email / public key - heroku keys)<br>— creating a local repository<br>— adding &amp; commiting files (mention staging &amp; developer workflow)</p>
+<h2 id="Deploying_your_application_on_Heroku">Deploying your application on Heroku</h2><p>— creating an app<br>— adding a remote git repo addreess &amp; alias<br>— using git to deploy<br>— basics of continuous deployment</p>
+<h2 id="Tracking_your_deployments">Tracking your deployments</h2><p>— Git log for tracking deployments<br>— Activity section on the Heroku website<br>— Configuring git logs<br>— Using Git GUI tools (SourceTree, … [TODO: good gui tool for Linux])<br>— Using Github with Heroku - benefits / workflow<br>— Connecting Github repository to your heroku application </p>
+<h2 id="Heroku_and_logging">Heroku and logging</h2><p>— introduce logplex<br>— Displaying heroku logs<br>— Showing only specific Logs<br>— show errors in logs<br>— persisting logs (eg. to meet company policies, legal requirements)</p>
+<h2 id="Rollbacks_and_managing_failures">Rollbacks and managing failures</h2><p>— discuss heroku releases and rollbacks<br>— create a bug and push it to the heroku app<br>— list releases, show release details, rollback to a releases, push a real fix</p>
+<h2 id="Extending_the_deveployment_workflow">Extending the deveployment workflow</h2><p>— the merits and challenges of different environments (testing, staging, UAT)<br>— creating multiple environments on Heroku (all the same, always the same)<br>— managing deployment across environments with Git log<br>— deploying to heroku from branches (other than master)</p>
+<h2 id="Processes_and_the_Procfile">Processes and the Procfile</h2><p>— introduce the Procfile<br>— introduce the web: process type<br>— discuss other process types (everything else)<br>— working with heroku processes<br>— heroku ps<br>— heroku ps:restart</p>
+<h2 id="How_Heroku_works_(high_level)">How Heroku works (high level)</h2><p>— buildpacks in more detail - the supported service - choosing your languages &amp; application stack is put together<br>— detecting your app<br>— compiling code<br>— pulling in dependencies<br>— setting up data sources<br>— deploying the app<br>— processes - scaling across a “server”<br>— dynos - scaling across multiple “servers”<br>— supported languages &amp; frameworks<br>— buildpacks for everything else</p>
+<h2 id="Scaling_your_apps">Scaling your apps</h2><p>— monitoring the performance of your apps<br>— new relic addon<br>— load testing your app with [apache jmeter | grinder | some online service]</p>
+<h2 id="Enhancing_your_apps_with_addons">Enhancing your apps with addons</h2><p>— how to manage addons<br>— common addons used (New Relic, Reddis, Mongodb, …)</p>
+<h2 id="Mongodb_addon_with_Meteor">Mongodb addon with Meteor</h2><p>— Using MongoLab addon  web console</p>
+<p>View the collections created<br>View the documents in each collection<br>View the data in each documents</p>
+<p>— using GUI client for mongodb access</p>
+<!-- Review Heroku Postgres service and develop Elevate content around it -->
+<h2 id="Postgres_database">Postgres database</h2><p>— database on demand<br>— forking, following<br>— dataclips</p>
+<h2 id="Releases_and_rollbacks_-_leave_this_till_later">Releases and rollbacks - leave this till later</h2><p>  What happens when you make a mistake in your code? Let’s try removing one of the double quotes and see what happens:</p>
+<h2 id="Collaborating_with_Github">Collaborating with Github</h2><p>As your using git to deploy your application on heroku, then its makes sense to collaborate on code changes using a service like Github.  Using a shared repository outside of heroku allows you to commit much finer grained changes to a shared repository, an effective way to minimise merge conflicts.</p>
+<p>If you created a repository on Github and cloned it locally when you started your project, then its just a matter of adding your team to the repository as collaborators and doing regular pushes of changes.</p>
+<p>If you just set up a project with a local git repository, git init, then you can use the git remote add command to add the URL address of a shared repository that you setup.  Assuming you are using github for the shared repository you would do something like:</p>
+<p>git remote add github git@github.com:user-name/repo-name.git</p>
+<p>Now reload the home page in your browser:</p>
+<p>&lt;a href=images/04x01-play-error-hello-world.png”&gt;<img src="images/04x01-play-error-hello-world.png"></p>
+<p>  Fix the error by adding back in the double quote you removed and save the file.  Check your application is still working by refreshing the browser.</p>
+<h1 id="Meteorite">Meteorite</h1><p>Meteorite is definitely still relevant and recent talks from meteor team indicate it will be folded into meteor itself eventually.</p>
+<p>Meteorite does more than NPM, it also takes client side 3rd party libraries and specifies how they get integrated into a meteor app. In this aspect it serves the same purpose as yeoman/bower. 3rd party client side libraries like x-editable, sugar.js, moment.js, etc dont really belong in NPM, but you also shouldnt have to manually incorporate them into your meteor project either. See this comment from the meteor team: <a href="https://github.com/meteor/meteor/pull/516#issuecomment-12919473" target="_blank" rel="external">https://github.com/meteor/meteor/pull/516#issuecomment-12919473</a></p>
+<p>Meteorite doesnt provide the full functionality of NPM. With just meteor, you cant just require a NPM package in your app and use it, even in 0.6.0+ you still have to make a package and an api wrapper. If you wanted to use a certain NPM and it was already wrapped and shared on meteorite, that would in effect provide a NPM ‘proxy’ via a meteorite package. Like this package <a href="https://atmosphere.meteor.com/package/ncp" target="_blank" rel="external">https://atmosphere.meteor.com/package/ncp</a></p>
+<p>I would suggest using meteorite for the capabilities you gain beyond meteor itself. However, be aware that this is an area in great flux so you may have to rework/adjust your project in the near term. IMO if you are building more than simplistic apps, you’ll definitely want meteorite for the ease of incorporating 3rd party libraries.</p>
+<p>Meteorite is still relevant at this point. Even though NPM packages are supported in meteor there isn’t a community repo to add packages from (<a href="http://atmosphere.meteor.com" target="_blank" rel="external">http://atmosphere.meteor.com</a>)</p>
+<p>Even though NPM modules can now be added they still need to be made to work with meteor.</p>
+<p>Meteor code uses fibers to allow sync code to run so each NPM module being used still needs a package to let it be used in meteor which can make it easier to use (by allowing fibers code to be used in a project) with minor editing. Currently these packages have no other community place to go besides the atmosphere repo.</p>
+<h1 id="TODO">TODO</h1><h1 id="Mongodb_addons">Mongodb addons</h1><h2 id="Minimongo_vs_mongodb">Minimongo vs mongodb</h2><h2 id="Importing_/_exporting_data">Importing / exporting data</h2><h2 id="backups">backups</h2><h2 id="Replication_&amp;_database_migration">Replication &amp; database migration</h2><p>[TODO: rollbacks and database ?  What are the best practices in managing data when you rollback ?]</p>
+<h2 id="logging_you_app_and_addons">logging you app and addons</h2><p>??<br>heroku logs:drains              — manage syslog drains</p>
+<h1 id="Using_multiple_accounts_for_Heroku">Using multiple accounts for Heroku</h1><p>  Sometimes you have one account on Heroku for billing purposes and another for developing applications with.  </p>
+<p>  The simplest way to manage this is to create your apps with your billing heroku account and for each app you create you add the email address of your developer account as a collaborator.</p>
+<h2 id="Hacking_your_project_git_config">Hacking your project git config</h2><p>  A more technical approach to multiple accounts is to hack the git configuration in a specific project.</p>
+<p>  In your ~/.ssh/config file, create a specific host definition for one of your heroku accounts, in this case we are creating a host for an heroku account used for billing (rather than app development)</p>
+<pre><code>Host heroku<span class="class">.billing</span>
+  HostName heroku<span class="class">.com</span>
+  IdentityFile ~/.ssh/id_heroku_billing_rsa
+  IdentitiesOnly yes
+</code></pre><p>  Then edit the git remote url in your project <strong>.git/config</strong> file in your local repository for the project. Change the file to look like:</p>
+<pre><code>[remote <span class="string">"heroku"</span>]
+  url = git<span class="annotation">@heroku</span>.<span class="string">billing:</span>&lt;appname&gt;.git
+</code></pre><p>  The updated url should point to the host you have defined in the ssh config file and the app name is the usual app name that was generated by heroku create.</p>
+<h2 id="Other_Alternatives">Other Alternatives</h2><ul>
+<li><a href="http://martyhaught.com/articles/2010/12/14/managing-multiple-heroku-accounts/" target="_blank" rel="external">Managing multiple heroku accounts</a></li>
+<li><a href="https://github.com/ddollar/heroku-accounts" target="_blank" rel="external">Heroku accouts</a></li>
+</ul>
+<h1 id="Using_Private_Git_Repos">Using Private Git Repos</h1><p>If your source code or dependencies are in a private github repository you can still use them.  You could use basic html auth but that would mean including your user name and password in the URL and would mean it can be seen by others.</p>
+<p>With GitHub, you can use an OAuth token in place of using your actual username and password. If your OAuth token ever becomes compromised, it can easily be revoked.</p>
+<p>git+https://<oauth_token>:x-oauth-basic@github.com/nsa/secret.git</oauth_token></p>
+<p>You can easily create OAuth tokens/Personal API Access Tokens in your GitHub account: <a href="https://github.com/settings/applications4" target="_blank" rel="external">https://github.com/settings/applications4</a></p>
+<p><a href="https://help.github.com/articles/git-over-https-using-oauth-token" target="_blank" rel="external">https://help.github.com/articles/git-over-https-using-oauth-token</a></p>
+<h1 id="Using_Heroku_Labs">Using Heroku Labs</h1><h1 id="Heroku_Clone">Heroku Clone</h1><p>[Q: is this a lab or new feature ?]</p>
+<p>  If you want to create a complete copy of an existing Heroku application, you can use the <code>heroku clone</code> command.</p>
+<pre><code><span class="tag">heroku</span> <span class="tag">git</span><span class="pseudo">:clone</span> 
+
+
+
+<span class="tag">heroku</span> <span class="tag">git</span><span class="pseudo">:remote</span>
+</code></pre><p>  Cloning an existing app could be useful if you want to develop a similar app and use the existing app as a base.  You could also create an application template from which you want to create all your apps.</p>
+<p><a href="https://devcenter.heroku.com/articles/git-clone-heroku-app" target="_blank" rel="external">https://devcenter.heroku.com/articles/git-clone-heroku-app</a>  </p>
+<h2 id="Heroku_fork">Heroku fork</h2><p>  Make a complete copy of an application, including the add-ons and data migration.</p>
+<p><a href="index.html">Back to Workshop home</a></p>
+<link href="index.css" rel="stylesheet" type="text/css">
+
+<h1 id="Using_Mongodb">Using Mongodb</h1><p><a href="index.html">Back to Workshop home</a></p>
+<link href="index.css" rel="stylesheet" type="text/css">
+
+
+<h1 id="12_factor_app_-_creating_scalable_apps">12 factor app - creating scalable apps</h1><p><a href="index.html">Back to Workshop home</a></p>
+<h1 id="Options_on_this_workshop">Options on this workshop</h1><ul>
+<li>Adding Twitter bootstrap to the project to create some great UI designs for the site.  It will make the end result more interesting to talk about and allow some more creativity into the workshop.  See the <a href="http://twitter.github.com/bootstrap/" target="_blank" rel="external">Twitter Bootstrap site</a></li>
+</ul>
+<h2 id="Other_workshop_ideas">Other workshop ideas</h2><ul>
+<li>Open Source project<br>¦— using github for collaboration, pull request, using travis-ci for running tests with link to pull requests to know that they are safe to merge, using github for issue management, markdown for wiki, creating a markdown site on Heroku</li>
+</ul>
+<h2 id="Talks">Talks</h2><ul>
+<li>polyglot developer, polyglot deployment - most developers are becomeing polyglot developers whether by design or neccessety.  With applications spreading over multiple server, devices, languages and technologies, often the most effective way is to use different tools for different jobs.  So what happens when it comes to deploy all this.  How do you manage to keep it all simple and part of the natural deployment workflow?</li>
+</ul>
+<p>Enter the polyglot platform</p>
+<h2 id="PDF_generation">PDF generation</h2><p>Create a bash script that grabs the ruby gem and installs it, then calls the gem to generate the PDF</p>
+<p>Resources</p>
+<p><a href="http://developer.force.com" target="_blank" rel="external">http://developer.force.com</a></p>
+<p>forcedotcom developer user groups<br><a href="http://bit.ly/fdc-dugs" target="_blank" rel="external">http://bit.ly/fdc-dugs</a></p>
+<p>Twitter accounts &amp; hashtags</p>
+<h1 id="forcedotcom">forcedotcom</h1><h1 id="askforce">askforce</h1><p>In this chapter you will learn how to instantly deploy an application on Heroku using the Heroku Toolbelt.  You will also learn how to run the new application locally, make changes, and synchronize the changes with Heroku.  Then you will learn how to instantly scale your application, set configuration parameters through environment variables, and view your application’s log entries.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jr0cket.co.uk/heroku-meteor/wip.html" data-id="ci7f2165t000yfyu31lid35zp" class="article-share-link">Share</a>
+      
+        <a href="http://jr0cket.co.uk/heroku-meteor/wip.html#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/clean-git-commits-with-emacs-magit.html">Clean Git Commits With Emacs Magit</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/custom-powerline-theme-for-Emacs-modeline.html">Custom Powerline Theme for Emacs Modeline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-emacs-modeline-with-powerline.html">Tweaking Emacs Modeline With Powerline</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/getting-started-with-cider-repl-for-clojure-on-emacs-live.html">Getting Started With Cider Repl for Clojure on Emacs Live</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/tweaking-light-table-for-a-great-clojure-experience.html">Tweaking Light Table for a Great Clojure Experience</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/faster-clojure-repl-startup-with-java-9-snapshot.html">Faster Clojure REPL Startup With Java 9 Snapshot</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/clojure-with-lighttable-in-emacs-mode.html">Clojure With Light Table and Emacs Keybindings</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/quick-guide-to-github-pull-requests.html">Quick Guide to Github Pull Requests</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/contributing-to-open-source-projects.html">Contributing to Open Source Projects</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/anyone-can-deploy-your-app-with-heroku-button.html">Anyone Can Deploy Your App With Heroku Button</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/agile/">agile</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blogging/">blogging</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book-reviews/">book-reviews</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cloud/">cloud</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/community/">community</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-docs/">dev-docs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev-tools/">dev-tools</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/events/">events</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/presenting/">presenting</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4clojure/" style="font-size: 10px;">4clojure</a><a href="/tags/6ThinkingHats/" style="font-size: 10px;">6ThinkingHats</a><a href="/tags/agile/" style="font-size: 20px;">agile</a><a href="/tags/agilecambridge/" style="font-size: 10px;">agilecambridge</a><a href="/tags/amazon/" style="font-size: 10px;">amazon</a><a href="/tags/android/" style="font-size: 10px;">android</a><a href="/tags/atlassian/" style="font-size: 15.63px;">atlassian</a><a href="/tags/bdd/" style="font-size: 10.63px;">bdd</a><a href="/tags/blender/" style="font-size: 10px;">blender</a><a href="/tags/bookreview/" style="font-size: 10px;">bookreview</a><a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a><a href="/tags/caftsmanship/" style="font-size: 10px;">caftsmanship</a><a href="/tags/ci/" style="font-size: 11.25px;">ci</a><a href="/tags/clojure/" style="font-size: 18.75px;">clojure</a><a href="/tags/clojurescript/" style="font-size: 10px;">clojurescript</a><a href="/tags/cloud/" style="font-size: 10.63px;">cloud</a><a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a><a href="/tags/collaboration/" style="font-size: 10.63px;">collaboration</a><a href="/tags/depreciated/" style="font-size: 10px;">depreciated</a><a href="/tags/devoxx/" style="font-size: 10px;">devoxx</a><a href="/tags/dibiconf/" style="font-size: 10px;">dibiconf</a><a href="/tags/dns/" style="font-size: 10px;">dns</a><a href="/tags/dvcs/" style="font-size: 10px;">dvcs</a><a href="/tags/emacs/" style="font-size: 17.5px;">emacs</a><a href="/tags/emacslive/" style="font-size: 11.25px;">emacslive</a><a href="/tags/estimation/" style="font-size: 10px;">estimation</a><a href="/tags/euroclojure/" style="font-size: 10px;">euroclojure</a><a href="/tags/fonts/" style="font-size: 10px;">fonts</a><a href="/tags/gdc/" style="font-size: 10px;">gdc</a><a href="/tags/gimp/" style="font-size: 10.63px;">gimp</a><a href="/tags/git/" style="font-size: 18.13px;">git</a><a href="/tags/github/" style="font-size: 13.75px;">github</a><a href="/tags/google/" style="font-size: 11.88px;">google</a><a href="/tags/graphics/" style="font-size: 10px;">graphics</a><a href="/tags/hackathon/" style="font-size: 11.25px;">hackathon</a><a href="/tags/hackday/" style="font-size: 10.63px;">hackday</a><a href="/tags/hackference/" style="font-size: 10px;">hackference</a><a href="/tags/health/" style="font-size: 10px;">health</a><a href="/tags/heroku/" style="font-size: 14.38px;">heroku</a><a href="/tags/hexo/" style="font-size: 16.25px;">hexo</a><a href="/tags/hindsight/" style="font-size: 11.25px;">hindsight</a><a href="/tags/hub/" style="font-size: 10px;">hub</a><a href="/tags/inkscape/" style="font-size: 11.25px;">inkscape</a><a href="/tags/java/" style="font-size: 11.25px;">java</a><a href="/tags/javascript/" style="font-size: 10px;">javascript</a><a href="/tags/jaxlondon/" style="font-size: 10.63px;">jaxlondon</a><a href="/tags/jbehave/" style="font-size: 10px;">jbehave</a><a href="/tags/junit/" style="font-size: 10px;">junit</a><a href="/tags/kanban/" style="font-size: 16.88px;">kanban</a><a href="/tags/leadership/" style="font-size: 10px;">leadership</a><a href="/tags/lean/" style="font-size: 10px;">lean</a><a href="/tags/learning/" style="font-size: 10px;">learning</a><a href="/tags/leiningen/" style="font-size: 10.63px;">leiningen</a><a href="/tags/lenovo/" style="font-size: 13.13px;">lenovo</a><a href="/tags/lighttable/" style="font-size: 12.5px;">lighttable</a><a href="/tags/ljcjug/" style="font-size: 12.5px;">ljcjug</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/macosx/" style="font-size: 10px;">macosx</a><a href="/tags/magit/" style="font-size: 11.25px;">magit</a><a href="/tags/markdown/" style="font-size: 10px;">markdown</a><a href="/tags/mentoring/" style="font-size: 10px;">mentoring</a><a href="/tags/migration/" style="font-size: 10px;">migration</a><a href="/tags/monkigras/" style="font-size: 10.63px;">monkigras</a><a href="/tags/motivation/" style="font-size: 10px;">motivation</a><a href="/tags/netbeans/" style="font-size: 11.88px;">netbeans</a><a href="/tags/nodejs/" style="font-size: 11.25px;">nodejs</a><a href="/tags/octopress/" style="font-size: 12.5px;">octopress</a><a href="/tags/openjdk/" style="font-size: 10px;">openjdk</a><a href="/tags/org-mode/" style="font-size: 10px;">org-mode</a><a href="/tags/orgmode/" style="font-size: 12.5px;">orgmode</a><a href="/tags/overtone/" style="font-size: 10px;">overtone</a><a href="/tags/parody/" style="font-size: 10px;">parody</a><a href="/tags/persona/" style="font-size: 10px;">persona</a><a href="/tags/presenting/" style="font-size: 10px;">presenting</a><a href="/tags/process/" style="font-size: 10px;">process</a><a href="/tags/qcon/" style="font-size: 11.25px;">qcon</a><a href="/tags/revealjs/" style="font-size: 11.25px;">revealjs</a><a href="/tags/salesforce/" style="font-size: 11.25px;">salesforce</a><a href="/tags/scala/" style="font-size: 15px;">scala</a><a href="/tags/scribus/" style="font-size: 10.63px;">scribus</a><a href="/tags/scrum/" style="font-size: 10.63px;">scrum</a><a href="/tags/security/" style="font-size: 10px;">security</a><a href="/tags/slashdot/" style="font-size: 10px;">slashdot</a><a href="/tags/sublimetext/" style="font-size: 10px;">sublimetext</a><a href="/tags/tdd/" style="font-size: 10.63px;">tdd</a><a href="/tags/themes/" style="font-size: 10px;">themes</a><a href="/tags/ubuntu/" style="font-size: 19.38px;">ubuntu</a><a href="/tags/unity/" style="font-size: 10.63px;">unity</a><a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a><a href="/tags/visualisation/" style="font-size: 10px;">visualisation</a><a href="/tags/wiki/" style="font-size: 10px;">wiki</a><a href="/tags/xpdays/" style="font-size: 10px;">xpdays</a><a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Stevenson<br>
+      <a href="http://twitter.com/jr0cket" target="_blank">@jr0cket</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://jr0cket.co.uk/developer-guides" class="mobile-nav-link">DevGuides</a>
+  
+    <a href="http://jr0cket.co.uk/slides" class="mobile-nav-link">Slides</a>
+  
+    <a href="/workshops" class="mobile-nav-link">Workshops</a>
+  
+    <a href="/clojure" class="mobile-nav-link">Clojure</a>
+  
+    <a href="/hexo" class="mobile-nav-link">Hexo</a>
+  
+    <a href="http://ubuntu.jr0cket.co.uk" class="mobile-nav-link">Ubuntu</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jr0cketcommunitydevelopre';
+  
+  var disqus_url = 'http://jr0cket.co.uk/heroku-meteor/wip.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<div id="scroll2top" style="position:fixed;bottom:150px;right:50px;cursor: pointer;Z-index:9999">
+<a title="返回顶部" href="#"><img src="/scroll2top/scrollup.png"/></a>
+</div>
+<script src="/scroll2top/scroll2top.js"></script>
+
+
+
+  </div>
+</body>
+</html>
